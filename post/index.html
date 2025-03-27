@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secret Talk is a platform for sharing anonymous confessions and thoughts.">
+    <meta name="keywords" content="Secret Talk, Anonymous, Confessions, Thoughts, Chat, Chatbot">
+    <meta name="author" content="Web Dev Simplified">
+    <meta property="og:title" content="Secret Talk">
+    <meta property="og:description" content="Secret Talk is a platform for sharing anonymous confessions and thoughts.">
+    <meta property="og:image" content="https://www.webdevsimplified.com/img/secret-talk.png">
+    <meta property="og:url" content="https://www.webdevsimplified.com/projects/secret-talk/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Secret Talk">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta name="theme-color" content="#fa5e30"/>
+    <title>Secret Talk</title>
+    <link rel="stylesheet" href="style1.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+         #splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background: #15162b;
+    /* Background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above all other content */
+}
+
+.splash-logo {
+    width: 350px; /* Adjust the size as needed */
+    animation: fadeOut 1s ease-in-out forwards;
+    animation-delay: 3s; /* Delay before fade out */
+}
+
+
+        .cover-background {
+            background: url("/ronit/Wedding-Invite/img/InShot_20250127_233751646.mp4") center center / cover no-repeat;
+        }
+        .image-1 {
+            background: url("https://s3.ap-southeast-1.amazonaws.com/cdn.kadio.id/upload/invitation/1649774033_bg1.jpeg") center;
+            background-size: cover;
+        }
+
+        .image-2 {
+            background: url("https://s3.ap-southeast-1.amazonaws.com/cdn.kadio.id/upload/invitation/1649774033_bg2.jpg") center;
+            background-size: cover;
+        }
+
+        .image-3 {
+            background: url("https://s3.ap-southeast-1.amazonaws.com/cdn.kadio.id/upload/invitation/1649774033_bg3.jpg") center;
+            background-size: cover;
+        }
+        #background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+
+    
+        @media only screen and (max-width: 768px) {
+    #background-video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        
+        <img src="lion-logo.png" alt="logo" class="splash-logo">
+        
+    </div>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+setTimeout(function() {
+    document.getElementById('splash-screen').style.display = 'none';
+}, 3000); // Hide after 3 seconds
+});
+    </script>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Secret Talk</div>
+        <div class="nav-icons">
+            <button onclick="showYourPosts()">✍️</button>
+            <a href="dashboard.html"><button id="dashboardBtn">📊</button></a>
+            
+        </div>
+    </nav>
+
+    <!-- Main Post Section -->
+    <div id="postContainer">
+        <div class="post-card" id="allPosts"></div>
+            <div class="post-actions">
+                
+            </div>
+        </div>
+    </div>
+    <!-- Your Posts Modal -->
+<div id="yourPostsContainer" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Your Posts</h2>
+        
+        <textarea id="postText" placeholder="Write your post..."  maxlength="600"></textarea>
+        <button id="postButton">Post</button>
+        <div id="userPosts"></div>
+
+        <!-- Guidelines Section -->
+        <button class="guidelines-btn" onclick="toggleGuidelines()">Guidelines </button>
+        <div class="guidelines-content" id="guidelinesContent">
+            <h2 style="text-align: center; color: #e91e63;">🔒 Secret Talk Community Guidelines 🔒</h2>
+        
+        <p><strong style="color: #e91e63;">Respect Privacy</strong><br>
+        Do not share any personal information—yours or anyone else’s.</p>
+
+        <p><strong style="color: #e91e63;">No Hate Speech or Discrimination</strong><br>
+        Confessions that promote hate or discrimination based on race, gender, religion, nationality, disability, sexual orientation, or age will be removed.</p>
+
+        <p><strong style="color: #e91e63;">No Inappropriate Content</strong><br>
+        Avoid sharing adult-only content, explicit fantasies, or any material meant for mature audiences.</p>
+
+        <p><strong style="color: #e91e63;">No Threats or Harm</strong><br>
+        Do not post anything that promotes self-harm, violence, or harm to others.</p>
+
+        <p><strong style="color: #e91e63;">Be Respectful</strong><br>
+        Honesty is encouraged, but please be mindful of your words and considerate of others' feelings.</p>
+
+        <p><strong style="color: #e91e63;">No Spam</strong><br>
+        Avoid repetitive, promotional, or irrelevant posts. Keep it meaningful.</p>
+
+        <p><strong style="color: #e91e63;">Original Content Only</strong><br>
+        Share confessions that are your own and haven’t been posted elsewhere on this platform.</p>
+
+        <p style="text-align: center; font-weight: bold; color: #e91e63;">Let’s make this a safe and supportive space for everyone. ❤️</p>
+        </div>
+        
+    </div>
+</div>
+<script>
+    function toggleGuidelines() {
+        let content = document.getElementById("guidelinesContent");
+        let button = document.querySelector(".guidelines-btn");
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            button.classList.add("active");
+        } else {
+            content.style.display = "none";
+            button.classList.remove("active");
+        }
+    }
+</script>
+<!-- Open Button -->
+<!-- <button onclick="showYourPosts()">Your Posts</button> -->
+
+
+<div id="nicknamePopup" class="popup">
+    <div class="popup-content">
+        <h3>Welcome! Set Your Nickname</h3>
+        <input type="text" id="nicknameInput" placeholder="Enter your nickname">
+        <button id="saveNicknameBtn">Save</button>
+
+
+    </div>
+</div>
+
+
+    <!-- Your Posts Popup -->
+    <div id="yourPostsPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>Your Posts</h2>
+            <div id="userPostsContainer"></div>
+        </div>
+    </div>
+
+    <a href="chat.html" class="float" >
+        <i class="fa fa-wechat my-float"></i>
+        </a>
+        
+    <script defer type="module" src="script2.js"></script>
+</body>
+</html>
+
+

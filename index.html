@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Talk</title>
+    <link href='https://fonts.googleapis.com/css?family=Moo Lah Lah' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="icon"></div>
+            <h1>Secret Talk</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <a href="index.html" class="nav-item active" data-target="home">
+                    <i class="fa-solid fa-house"></i> HOME
+                </a>
+
+                <h2>COMPONENTS</h2>
+                <a href="chatbot/chat.html" class="nav-item" data-target="chatbot"><img src="assets/chatbot_icon.png" alt="chatbot"> CHATBOT</a>
+                <a href="#livechat"class="nav-item" data-target="livechat"><img src="assets/live_icon.png" alt="live_icon"> LIVE CHAT</a>
+                <a href="post/index.html" class="nav-item" data-target="post"><img src="assets/post_icon.png" alt="chatbot">POST</a>
+                <a href="about.html"  class="nav-item" data-target="about"><img src="assets/about_icon.png" alt="chatbot">ABOUT US</a>
+                <a href="feedback.html" class="nav-item" data-target="feedback"><img src="assets/feedback_icon.png" alt="chatbot">FEEDBACK</a>
+                <a href="#mentorship" class="nav-item" data-target="mentorship"><img src="assets/mentor_icoon.png" alt="mentorship">MENTORSHIP</a>
+
+                <h2>AUTH</h2>
+                <a href="Registration/log_in.html" class="nav-item" data-target="login"><img src="assets/login.png" alt="login"> LOGIN</a>
+                <a href="Registration/log_in.html" class="nav-item" data-target="register"><img src="assets/register_icon.png" alt="register"> REGISTER</a>
+            </ul>
+        </nav>
+
+        <!-- Upgrade to Pro -->
+        <div class="upgrade">
+            <p>Upgrade to Pro</p>
+            <button id="buyPro">SUBCRIBE</button>
+        </div>
+    </div>
+        <main class="content">
+            <header>
+                <div class="topbar">
+                    <a href="Terms&Conditions/termandcondition.html">
+                        <button class="btn" onclick="showTerms()">Terms & Conditions</button>
+                    </a>
+                   
+                    <div class="profile" onclick="showProfile()"><img src="assets/profile_icon.png" alt="profile"></div>
+                </div>
+            </header>
+             <!-- Scrollable Banner -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide active" style="background-image: url('assets/Green\ Watercolour\ Opening\ Soon\ Banner\ \(1\).png');"></div>
+            <div class="slide" style="background-image: url('assets/Black\ and\ White\ Minimalist\ Elegant\ Fashion\ Banner\ \(1\).png');"></div>
+            <div class="slide" style="background-image: url('assets/WhatsApp\ Image\ 2025-03-26\ at\ 22.07.16_4783616d.jpg');"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="dots-container">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+        </div>
+    </div>
+
+     <!-- Clickable Category Buttons -->
+     <div class="category-container">
+        <div class="category" onclick="openCategory('mobiles')">
+            <img src="assets/happy.png" alt="Happy">
+            <p>Happy</p>
+        </div>
+        <div class="category" onclick="openCategory('fashion')">
+            <img src="assets/love.png" alt="love">
+            <p>Romantic</p>
+        </div>
+        <div class="category" onclick="openCategory('electronics')">
+            <img src="assets/serious.png" alt="serious">
+            <p>Serious</p>
+        </div>
+        <div class="category" onclick="openCategory('grocery')">
+            <img src="assets/depression.png" alt="depression">
+            <p>Depression</p>
+        </div>
+        <div class="category" onclick="openCategory('home-furniture')">
+            <img src="assets/sad.png" alt="sad">
+            <p>Sad</p>
+        </div>
+    </div>
+
+
+    <!-------------------- music-button ------------------------------------->
+    <section class="fun">
+        <section class="fun-button">
+            <a href="mood-relief/index.html"><button class="mood-button">Mood Calculator</button></a>
+            <button class="music-button">Play Music</button>
+        </section>
+    
+    </section>
+     <!-- Footer Section -->
+
+        </main>
+
+        
+    </div>
+  
+
+    
+</body>
+</html>

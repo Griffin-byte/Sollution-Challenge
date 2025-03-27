@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Talk - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+   
+</head>
+<body>
+    <nav>
+        <h2>Secret Talk</h2>
+        <!-- <button id="logoutBtn">Logout</button> -->
+    </nav>
+    
+    <div class="profile-section">
+        <!-- <img src="default-avatar.png" id="profilePic" alt="Profile Picture"> -->
+        
+        <div id="user-nickname"></div>
+        <!-- Nickname Display -->
+<div id="user-nickname">
+    <p><strong>Nickname:</strong> <span id="nickname-text"></span> 
+    <button onclick="openEditNicknamePopup()" class="edit-btn">Edit Nickname</button></p>
+</div>
+
+<!-- Nickname Edit Popup -->
+<div id="editNicknameModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Your Nickname</h3>
+        <input type="text" id="new-nickname" placeholder="Enter new nickname" maxlength="10">
+        <p id="nickname-error" class="error-message"></p>
+        <button onclick="saveNickname()">Save</button>
+        <button onclick="closeEditNicknamePopup()">Cancel</button>
+    </div>
+</div>
+
+<style>
+    /* Popup Modal Styling */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
+    .modal-content { background: white; padding: 20px;color: black; width: 300px; margin: 100px auto; text-align: center; border-radius: 10px; }
+    .error-message { color: red; font-size: 12px; }
+</style>
+
+    </div>
+    
+    <div class="dashboard">
+        <h2>Your Posts</h2>
+        <div id="posts-container"></div> <!-- Make sure this exists -->
+        <div id="editPostModal" class="modal">
+            <div class="modal-content">
+                <h3>Edit Your Post</h3>
+                <textarea id="edit-post-content" rows="4" placeholder="Edit your post..."></textarea>
+                <p id="post-error" class="error-message"></p>
+                <button onclick="saveEditedPost()">Save</button>
+                <button onclick="closeEditPostPopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" defer src="dashboard.js"></script>
+</html>

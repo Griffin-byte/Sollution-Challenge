@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Talk</title>
+    <link href='https://fonts.googleapis.com/css?family=Moo Lah Lah' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+
+/* Feedback Section */
+#feedback {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.feedback-container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(6, 0, 111, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.feedback-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.feedback-container h1 span {
+    color:#4c6ef5;
+}
+
+.feedback-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input, textarea, select {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+textarea {
+    resize: none;
+}
+
+/* Gradient Button */
+.gradient-btn {
+    background: linear-gradient(90deg, #321b86, #4636b1);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(90deg,#4636b1,#321b86);
+    transform: scale(1.05);
+}
+
+/* Thank You Message */
+.hidden {
+    display: none;
+    color:#4c6ef5;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="icon"></div>
+            <h1>Secret Talk</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <a href="index.html" class="nav-item active" data-target="home">
+                    <i class="fa-solid fa-house"></i> HOME
+                </a>
+
+                <h2>COMPONENTS</h2>
+                <a href="#chatbot" class="nav-item" data-target="chatbot"><img src="assets/chatbot_icon.png" alt="chatbot"> CHATBOT</a>
+                <a href="#livechat"class="nav-item" data-target="livechat"><img src="assets/live_icon.png" alt="live_icon"> LIVE CHAT</a>
+                <a href="#post" class="nav-item" data-target="post"><img src="assets/post_icon.png" alt="chatbot">POST</a>
+                <a href="about.html"  class="nav-item" data-target="about"><img src="assets/about_icon.png" alt="chatbot">ABOUT US</a>
+                <a href="feedback.html" class="nav-item" data-target="feedback"><img src="assets/feedback_icon.png" alt="chatbot">FEEDBACK</a>
+                <a href="#mentorship" class="nav-item" data-target="mentorship"><img src="assets/mentor_icoon.png" alt="mentorship">MENTORSHIP</a>
+
+                <h2>AUTH</h2>
+                <a href="Registration/log_in.html" class="nav-item" data-target="login"><img src="assets/login.png" alt="login"> LOGIN</a>
+                <a href="Registration/log_in.html" class="nav-item" data-target="register"><img src="assets/register_icon.png" alt="register"> REGISTER</a>
+            </ul>
+        </nav>
+
+        <!-- Upgrade to Pro -->
+        <div class="upgrade">
+            <p>Upgrade to Pro</p>
+            <button id="buyPro">SUBCRIBE</button>
+        </div>
+    </div>
+        <main class="content">
+            <header>
+                <div class="topbar">
+                    <a href="Terms&Conditions/termandcondition.html">
+                        <button class="btn" onclick="showTerms()">Terms & Conditions</button>
+                    </a>
+                    <button class="btn green" onclick="downloadFree()">Download Free</button>
+                    <div class="profile" onclick="showProfile()"><img src="assets/profile_icon.png" alt="profile"></div>
+                </div>
+            </header>
+              <!-- Feedback Section -->
+  <section id="feedback">
+    <div class="feedback-container">
+        <h1>Give Your <span>Feedback</span></h1>
+        <p>Your opinion matters! Share your experience and help us improve.</p>
+
+        <form id="feedbackForm">
+            <label for="name">Name (Optional):</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Email (Optional):</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="rating">Rate Your Experience:</label>
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                <option value="4">⭐⭐⭐⭐ Good</option>
+                <option value="3">⭐⭐⭐ Average</option>
+                <option value="2">⭐⭐ Poor</option>
+                <option value="1">⭐ Very Bad</option>
+            </select>
+
+            <label for="message">Your Feedback:</label>
+            <textarea id="message" rows="4" placeholder="Write your feedback here..."></textarea>
+
+            <button type="submit" class="gradient-btn">Submit Feedback</button>
+        </form>
+
+        <p id="thankYouMessage" class="hidden">Thank you for your feedback! 💖</p>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+const feedbackForm = document.getElementById("feedbackForm");
+const thankYouMessage = document.getElementById("thankYouMessage");
+
+feedbackForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the form from actually submitting
+
+    // Simulate form submission success
+    feedbackForm.style.display = "none";
+    thankYouMessage.classList.remove("hidden");
+});
+});
+
+</script>
+        </main>
+
+        
+    </div>
+  
+
+    
+</body>
+</html>

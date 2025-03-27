@@ -1,0 +1,46 @@
+  <!-- Feedback Section -->
+  <section id="feedback">
+    <div class="feedback-container">
+        <h1>Give Your <span>Feedback</span></h1>
+        <p>Your opinion matters! Share your experience and help us improve.</p>
+
+        <form id="feedbackForm">
+            <label for="name">Name (Optional):</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Email (Optional):</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="rating">Rate Your Experience:</label>
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                <option value="4">⭐⭐⭐⭐ Good</option>
+                <option value="3">⭐⭐⭐ Average</option>
+                <option value="2">⭐⭐ Poor</option>
+                <option value="1">⭐ Very Bad</option>
+            </select>
+
+            <label for="message">Your Feedback:</label>
+            <textarea id="message" rows="4" placeholder="Write your feedback here..."></textarea>
+
+            <button type="submit" class="gradient-btn">Submit Feedback</button>
+        </form>
+
+        <p id="thankYouMessage" class="hidden">Thank you for your feedback! 💖</p>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+const feedbackForm = document.getElementById("feedbackForm");
+const thankYouMessage = document.getElementById("thankYouMessage");
+
+feedbackForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the form from actually submitting
+
+    // Simulate form submission success
+    feedbackForm.style.display = "none";
+    thankYouMessage.classList.remove("hidden");
+});
+});
+
+</script>

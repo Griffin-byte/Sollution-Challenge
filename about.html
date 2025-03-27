@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Talk</title>
+    <link href='https://fonts.googleapis.com/css?family=Moo Lah Lah' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+/* About Us Section */
+/* About Us Section */
+#about {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+.about-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+ span {
+    color: #634bff;
+}
+
+ h2 {
+    font-size: 26px;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-container ul, .about-container ol {
+    font-size: 18px;
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.about-container ul li, .about-container ol li {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a1a2e;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#about {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.about-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+ span {
+    color: #634bff;
+}
+
+.about-container p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 10px auto;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="icon"></div>
+            <h1>Secret Talk</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <a href="index.html" class="nav-item active" data-target="home">
+                    <i class="fa-solid fa-house"></i> HOME
+                </a>
+
+                <h2>COMPONENTS</h2>
+                <a href="#chatbot" class="nav-item" data-target="chatbot"><img src="assets/chatbot_icon.png" alt="chatbot"> CHATBOT</a>
+                <a href="#livechat"class="nav-item" data-target="livechat"><img src="assets/live_icon.png" alt="live_icon"> LIVE CHAT</a>
+                <a href="#post" class="nav-item" data-target="post"><img src="assets/post_icon.png" alt="chatbot">POST</a>
+                <a href="about.html"  class="nav-item" data-target="about"><img src="assets/about_icon.png" alt="chatbot">ABOUT US</a>
+                <a href="feedback.html" class="nav-item" data-target="feedback"><img src="assets/feedback_icon.png" alt="chatbot">FEEDBACK</a>
+                <a href="#mentorship" class="nav-item" data-target="mentorship"><img src="assets/mentor_icoon.png" alt="mentorship">MENTORSHIP</a>
+
+                <h2>AUTH</h2>
+                <a href="Registration/log_in.html" class="nav-item" data-target="login"><img src="assets/login.png" alt="login"> LOGIN</a>
+                <a href="Registration/log_in.html" class="nav-item" data-target="register"><img src="assets/register_icon.png" alt="register"> REGISTER</a>
+            </ul>
+        </nav>
+
+        <!-- Upgrade to Pro -->
+        <div class="upgrade">
+            <p>Upgrade to Pro</p>
+            <button id="buyPro">SUBCRIBE</button>
+        </div>
+    </div>
+        <main class="content">
+            <header>
+                <div class="topbar">
+                    <a href="Terms&Conditions/termandcondition.html">
+                        <button class="btn" onclick="showTerms()">Terms & Conditions</button>
+                    </a>
+                    <button class="btn green" onclick="downloadFree()">Download Free</button>
+                    <div class="profile" onclick="showProfile()"><img src="assets/profile_icon.png" alt="profile"></div>
+                </div>
+            </header>
+
+            <section id="about">
+                <div class="about-container">
+                    <h1>About <span>Secret Talk</span></h1>
+        
+                    <p>Welcome to <strong>Secret Talk</strong> – your safe and anonymous communication hub! Our platform is built to provide a secure, anonymous, and engaging environment where people can connect, share their emotions, and discuss various topics while maintaining complete privacy.</p>
+        
+                    <h2>What is <span>Secret Talk?</span></h2>
+                    <p>Secret Talk is an anonymous chatting and discussion platform where users can communicate using nicknames instead of real identities. The platform provides multiple interactive features like:</p>
+                    <ul>
+                        <li> Live Chat Rooms</li>
+                        <li> Anonymous Posting</li>
+                        <li> AI Chatbot</li>
+                        <li> Polls & Surveys</li>
+                        <li> Emotional Posts</li>
+                    </ul>
+        
+                    <h2> Why Choose <span>Secret Talk?</span></h2>
+                    <ul>
+                        <li> 100% Anonymity & Privacy</li>
+                        <li> Safe & Friendly Community</li>
+                        <li> Express Yourself Freely</li>
+                        <li> Smart AI-Powered Chatbot</li>
+                        <li> No Data Tracking – Full Privacy</li>
+                </ul>
+            </section>
+
+        </main>
+
+        
+    </div>
+  
+
+    
+</body>
+</html>

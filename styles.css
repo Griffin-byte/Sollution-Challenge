@@ -1,0 +1,310 @@
+/* Sidebar Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: white;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
+.logo h1{
+    font-family: 'Montserrat', sans-serif;
+    color: #04010a;
+}
+
+.logo .icon {
+    width: 20px;
+    height: 20px;
+    background: #4c6ef5;
+    border-radius: 100%;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+nav h2 {
+    font-size: 12px;
+    color: gray;
+    margin: 10px 0;
+}
+
+.nav-item {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.nav-item img{
+    height: 25px;
+}
+
+.nav-item:hover {
+    background: #f0f0f0;
+    border-radius: 30px;
+}
+
+.nav-item.active {
+    background: #4c6ef5;
+    color: white;
+    border-radius: 50px;
+}
+
+/* Upgrade Section */
+.upgrade {
+    background: #e0f2ff;
+    padding: 15px;
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.upgrade p {
+    color: #333;
+    font-weight: bold;
+}
+
+.upgrade button {
+    background: #4c6ef5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.upgrade button:hover {
+    background: #3b5bdb;
+}
+
+
+.content {
+    flex: 1;
+}
+
+.topbar {
+    background-color: #c6c6c65d;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #2e0c84;
+    color: white;
+    border-radius: 25px;
+}
+
+.btn.green {
+    background-color: #28a745;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.profile img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/* ------------------------banner--------------------------------- */
+ /* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 40px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Pagination Dots */
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #4c6ef5;
+}
+
+/* Category Buttons */
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    border-radius: 100%;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.category p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+        /* Music Button */
+        .fun{
+            display: flex;
+            margin-top: 30px;
+        }
+        .fun-button{
+            height: 200px;
+            width: 100%;
+           justify-content:center;
+        }
+        .mood-button{
+            height: 80px;
+            width: 250px;
+            background: linear-gradient(to right, #590167, #1b1259);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-right: 10px;
+            transition: background 0.4s ease-in-out, transform 0.2s ease-in-out;
+            
+        }
+        .music-button {
+            height: 80px;
+            width: 250px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-left: 10px;
+            transition: background 0.4s ease-in-out, transform 0.2s ease-in-out;
+        }
+        
+        /* Hover Effect */
+        .mood-button:hover {
+            background: linear-gradient(to right,#1b1259,#590167);
+            transform: scale(1.1);
+        }
+        .music-button:hover {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            transform: scale(1.1);
+        }
