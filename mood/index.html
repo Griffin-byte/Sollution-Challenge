@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Mirror – Discover Your True Vibe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .neon-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%), url('https://www.transparenttextures.com/patterns/stardust.png');
+      z-index: -1;
+      animation: pulse 8s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        filter: hue-rotate(60deg);
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,255,0.2);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    p.description {
+      font-size: 1.2em;
+      color: #e0e0e0;
+    }
+
+    form {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .question-block {
+      margin-bottom: 30px;
+    }
+
+    .question-block p {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffebee;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    #submitBtn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #00f7ff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #submitBtn:hover {
+      background: #0ff;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 1.5rem;
+      color: #fff;
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="neon-bg"></div>
+
+  <div class="container">
+    <h1><i class="fas fa-heartbeat"></i> Mood Mirror</h1>
+    <p class="description">Discover Your True Vibe – Answer the questions below and reveal your inner mood!</p>
+    <form id="quizForm"></form>
+    <button id="submitBtn">Submit</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script>
+    let moodScores = { happy: 0, sad: 0, anxious: 0, angry: 0 };
+
+    async function loadQuestions() {
+      const res = await fetch('questions.json');
+      const questions = await res.json();
+      const quizForm = document.getElementById('quizForm');
+
+      questions.forEach((q, index) => {
+        const qBlock = document.createElement('div');
+        qBlock.classList.add('question-block');
+        qBlock.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
+
+        Object.keys(q.options).forEach(mood => {
+          const opt = q.options[mood];
+          qBlock.innerHTML += `
+            <label>
+              <input type="radio" name="q${index}" value="${mood}" />
+              ${opt}
+            </label>`;
+        });
+
+        quizForm.appendChild(qBlock);
+      });
+    }
+
+    function calculateMood() {
+      const inputs = document.querySelectorAll('input[type="radio"]:checked');
+      inputs.forEach(input => moodScores[input.value]++);
+
+      const detectedMood = Object.keys(moodScores).reduce((a, b) =>
+        moodScores[a] > moodScores[b] ? a : b
+      );
+
+      const messages = {
+        happy: "You seem happy! 🌈 Keep the positive vibes flowing.",
+        sad: "You seem a little down. It’s okay. You’re not alone. 💙",
+        anxious: "You’re feeling anxious. Take a deep breath. 🌿",
+        angry: "You're feeling tense. Let's calm that storm inside. 🔥"
+      };
+
+      document.getElementById("result").innerHTML = `
+        <h2>Your Mood: ${detectedMood.toUpperCase()}</h2>
+        <p>${messages[detectedMood]}</p>
+      `;
+
+      saveToFirebase(detectedMood);
+    }
+
+    function saveToFirebase(mood) {
+      const db = firebase.firestore();
+      db.collection("mood_results").add({
+        mood: mood,
+        timestamp: new Date()
+      });
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      calculateMood();
+    });
+
+    loadQuestions();
+  </script>
+</body>
+</html>

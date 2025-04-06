@@ -1,0 +1,93 @@
+[
+    {
+      "question": "How do you feel when you wake up in the morning?",
+      "options": {
+        "happy": "Energized and excited for the day",
+        "sad": "Tired and unmotivated",
+        "anxious": "Nervous about what’s coming",
+        "angry": "Irritated without any reason"
+      }
+    },
+    {
+      "question": "What has your mind been occupied with lately?",
+      "options": {
+        "happy": "Positive thoughts and dreams",
+        "sad": "Past regrets or sad memories",
+        "anxious": "Worries about future or failure",
+        "angry": "Frustration over people/situations"
+      }
+    },
+    {
+      "question": "How do you usually react when someone disagrees with you?",
+      "options": {
+        "happy": "Try to understand their point of view",
+        "sad": "Feel hurt or take it personally",
+        "anxious": "Feel nervous or avoid confrontation",
+        "angry": "Get defensive or angry quickly"
+      }
+    },
+    {
+      "question": "How have your eating habits been recently?",
+      "options": {
+        "happy": "Eating regularly and healthy",
+        "sad": "Eating less or skipping meals",
+        "anxious": "Eating out of stress or randomly",
+        "angry": "Overeating due to frustration"
+      }
+    },
+    {
+      "question": "How would you describe your current energy level?",
+      "options": {
+        "happy": "Full of energy and focus",
+        "sad": "Low energy and sleepy",
+        "anxious": "Restless but tired",
+        "angry": "Tense and aggressive energy"
+      }
+    },
+    {
+      "question": "What’s your reaction to sudden changes in plans?",
+      "options": {
+        "happy": "I go with the flow",
+        "sad": "I feel a bit low or lost",
+        "anxious": "I panic or feel uneasy",
+        "angry": "I get mad at the situation"
+      }
+    },
+    {
+      "question": "How often do you feel truly relaxed?",
+      "options": {
+        "happy": "Almost every day",
+        "sad": "Rarely feel calm",
+        "anxious": "Can't remember the last time",
+        "angry": "I don’t like relaxing, it feels useless"
+      }
+    },
+    {
+      "question": "What best describes your sleep quality recently?",
+      "options": {
+        "happy": "Deep, refreshing sleep",
+        "sad": "Restless or broken sleep",
+        "anxious": "Trouble falling or staying asleep",
+        "angry": "Sleep disturbed by racing thoughts"
+      }
+    },
+    {
+      "question": "What’s your reaction when someone makes a mistake around you?",
+      "options": {
+        "happy": "I forgive and help them fix it",
+        "sad": "I feel disappointed but stay quiet",
+        "anxious": "I get nervous or avoid saying anything",
+        "angry": "I call them out or get upset"
+      }
+    },
+    {
+      "question": "How often do you feel understood by others?",
+      "options": {
+        "happy": "Most of the time, I feel heard",
+        "sad": "I often feel alone or ignored",
+        "anxious": "I don’t express myself clearly",
+        "angry": "I feel people purposely misunderstand me"
+      }
+    }
+  ]
+  
