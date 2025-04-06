@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "electronic-care"
-  }
+    "default": "electronic-care",
+    "firebase use prod": "secret-talk-a89a5"
+  },
+  "targets": {},
+  "etags": {}
 }
